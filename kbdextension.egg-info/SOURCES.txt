@@ -1,0 +1,7 @@
+kbdextension.py
+setup.py
+kbdextension.egg-info/PKG-INFO
+kbdextension.egg-info/SOURCES.txt
+kbdextension.egg-info/dependency_links.txt
+kbdextension.egg-info/requires.txt
+kbdextension.egg-info/top_level.txt
