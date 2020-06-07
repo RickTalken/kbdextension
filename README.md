@@ -6,7 +6,7 @@ See [Usage](#usage) for more information.
 
 ## Installation
 ```
-pip install git+git://github.com/ricktalken/kbdextension.git
+pip install kbdextension
 ```
 
 ## Usage
