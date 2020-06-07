@@ -10,7 +10,7 @@ pip install git+git://github.com/ricktalken/kbdextension.git
 ```
 
 ## Usage
-The KBD Extension is an inline processor for adding markdown syntax for inline `<kbd>` tags.  Text wrapped in double brackets, double braces, or double parenthesis will be wrapped with an HTML `<kbd>` tag.  The KBD extension was designed to work with Python-Markdown default extensions. The KBD Extension markdown indicators can be individually enabled or disabled if conflicts are encountered when paired with other 3rd party extensions.  Brackets are enabled by default (but can be disabled).  Braces and parenthesis are disabled by default (but can be individually enabled).  By default, the page's default css implementation will be applied to the `<kbd>` tag(s).  The KBD extension can be confugured to use custom css for each of the KBD markdown indicators.
+The KBD Extension is an inline processor for adding markdown syntax for inline `<kbd>` tags.  Text wrapped in double brackets, double braces, or double parenthesis will be wrapped with an HTML `<kbd>` tag.  The KBD Extension was designed to work with Python-Markdown default extensions. The KBD Extension markdown indicators can be individually enabled or disabled if conflicts are encountered when paired with other 3rd party extensions.  Brackets are enabled by default (but can be disabled).  Braces and parenthesis are disabled by default (but can be individually enabled).  By default, the page's default css implementation will be applied to the `<kbd>` tag(s).  The KBD Extension can be configured to use custom css for each of the KBD markdown indicators.
 
 ### Brackets Markdown
 ```python
@@ -88,7 +88,7 @@ markdown_extensions:
     - kbdextension
 ```
 ### Partial Configuration
-This partial configuration disables the brackets markdown indicator and enables the braces markdown indicator with a custom css class for the `<kbd>` tag that it renders.
+This partial configuration example disables the brackets markdown indicator and enables the braces markdown indicator with a custom css class for the `<kbd>` tag that it renders.
 ```yaml
 extra_css:
     - css/extra.css
