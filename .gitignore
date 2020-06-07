@@ -1,5 +1,5 @@
-__pycache__/
-.vscode/*
+__pycache__
+.vscode
 .pytest_cache
 env/
-*.egg-info/
+*.egg-info
