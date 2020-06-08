@@ -93,7 +93,7 @@ This partial configuration example disables the brackets markdown indicator and 
 extra_css:
     - css/extra.css
 markdown_extensions:
-    - kbdextension
+    - kbdextension:
         enable_brackets: false
         enable_braces: true
         braces_css: braces_kbd_css
@@ -104,7 +104,7 @@ A full configuration enables brackets, braces, and parenthesis markdown indicato
 extra_css:
     - css/extra.css
 markdown_extensions:
-    - kbdextension
+    - kbdextension:
         brackets_css: brackets_kbd_css
         enable_braces: true
         braces_css: braces_kbd_css
@@ -112,6 +112,70 @@ markdown_extensions:
         parens_css: parens_kbd_css
 ```
 For more on configuring custom css in MkDocs, refer to [MkDocs configuration documentation](https://www.mkdocs.org/user-guide/configuration/#extra_css).
+
+### MkDocs Example
+The following example demonstrates the use of all three markdown indicators available with the KBD Extension.
+
+![MkDocs Example](/assets/mkdocs_example.png)
+
+First we created the custom css for the site.   For this example, the `extra.css` file defines each of the three custom KBD css classes we will require.  The `extra.css` file is saved in a `css` subdirectory of MkDocs `docs_dir` directory.  The following css was used for this example:
+```css
+kbd.button-css {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 75%;
+    padding: 2px 6px;
+    color: #ffffff;
+    background-color: #6699cc;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 0 1px #333333;
+            box-shadow: inset 0 0 0 1px #333333;
+}
+kbd.menu-css {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 75%;
+    padding: 2px 4px;
+    color: #333333;
+    background-color: #f2f2f2;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 0 1px #333333;
+            box-shadow: inset 0 0 0 1px #333333;
+} 
+kbd.keyboard-css {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 75%;
+    padding: 2px 6px;
+    color: #ffffff;
+    background-color: #333333;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+} 
+```
+
+Next, we create the markdown for the example.  We make use of all three KBD syntax indicators in this example to render three distinct `<kbd>` HTML tags.  The markdown is shown here:
+```markdown
+Click the {{Open...}} menu or press ((CTRL)) + ((O)) to open.
+Click the [[SAVE]] button to save changes.
+```
+
+Next, the `mkdocs.yml` configuration file is updated to include `extra_css:` and a full KBD Extension configuration as follows:
+```yaml
+extra_css:
+    - css/extra.css
+markdown_extensions:
+    - kbdextension:
+        brackets_css: button-css
+        enable_braces: true
+        braces_css: menu-css
+        enable_parens: true
+        parens_css: keyboard-css   
+```
+
+KBD Extension together with MkDocs and Python-Markdown renders the following HTML:
+```html
+Click the <kbd class="menu-css">Open...</kbd> menu or press <kbd class="keyboard-css">CTRL</kbd> + <kbd class="keyboard-css">O</kbd> to open.
+Click the <kbd class="button-css">SAVE</kbd> button to save changes.
+```
 
 ## License
 This software is provided under the MIT License. See [LICENSE](LICENSE.md) for details.
